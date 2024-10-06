@@ -44,8 +44,8 @@ class Truck extends Vehicle implements AbleToTow {
       this.year = year;
       this.weight = weight;
       this.topSpeed = topSpeed;
-      if (wheels.length !== 4) {
-        this.wheels = [new Wheel(), new Wheel(), new Wheel(), new Wheel()];
+      if (wheels.length !== 6) {
+        this.wheels = [new Wheel(), new Wheel(), new Wheel(), new Wheel(), new Wheel(), new Wheel()];
       } else {
         this.wheels = wheels;
       };
@@ -92,6 +92,12 @@ class Truck extends Vehicle implements AbleToTow {
     );
     console.log(
       `Wheel 4: ${this.wheels[3].getDiameter} inch with a ${this.wheels[3].getTireBrand} tire`
+    );
+    console.log(
+      `Wheel 5: ${this.wheels[4].getDiameter} inch with a ${this.wheels[4].getTireBrand} tire`
+    );
+    console.log(
+      `Wheel 6: ${this.wheels[5].getDiameter} inch with a ${this.wheels[5].getTireBrand} tire`
     );
 };
 };
