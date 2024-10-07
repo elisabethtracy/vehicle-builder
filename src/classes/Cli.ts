@@ -13,9 +13,9 @@ class Cli {
   vehicles: (Car | Motorbike | Truck)[];
   selectedVehicleVin: string | undefined;
   exit: boolean = false;
- 
 
-  
+
+
 
   // TODO: Update the constructor to accept Truck and Motorbike objects as well
   constructor(vehicles: (Car | Motorbike | Truck)[]) {
@@ -73,7 +73,7 @@ class Cli {
           this.createCar();
         } else if (answers.vehicleType === 'Truck') {
           this.createTruck();
-        } else (answers.vehicleType === 'Motorbike') ;{
+        } else (answers.vehicleType === 'Motorbike'); {
           this.createMotorbike();
         };
         // TODO: add statements to create a truck or motorbike if the user selects the respective vehicle type
@@ -188,7 +188,7 @@ class Cli {
           parseInt(answers.topSpeed),
           [],
           parseInt(answers.towingCapacity),
-         
+
         );
         // TODO: push the truck to the vehicles array
         this.vehicles.push(truck);
@@ -304,11 +304,11 @@ class Cli {
       .then((answers) => {
         // TODO: check if the selected vehicle is the truck
         const selectedVehicle = answers.vehicleToTow;
-          // TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
+        // TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
         if (selectedVehicle instanceof Truck) {
           console.log(`The truck cannot tow itself. Please select another vehicle.`);
           this.performActions();
-           // TODO: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action
+          // TODO: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action
         } else {
           console.log(`Towing vehicle: ${selectedVehicle.vin}`);
           this.performActions();
@@ -318,29 +318,29 @@ class Cli {
 
   wheelie(motorbike: Motorbike): void {
     inquirer
-    .prompt([
-      {
-        type: 'list',
-        name: 'vehicleToWheelie',
-        message: 'Select a vehicle to perform a wheelie.',
-        choices: this.vehicles.map((vehicle) => {
-          return {
-            name: `${vehicle.vin} -- ${vehicle.make} ${vehicle.model}`,
-            value: vehicle,
-          };
-        }),
-      },
-    ])
-    .then((answers) => {
-      const selectedVehicle = answers.vehicleToWheelie;
-      if (selectedVehicle instanceof Motorbike) {
-        console.log(`The selected vehicle is doing a wheelie!`);
-        this.performActions();
-      } else {
-        console.log(`The selected vehicle is not able to perform a wheelie. Please select another vehicle.`);
-        this.performActions();
-      };
-    });
+      .prompt([
+        {
+          type: 'list',
+          name: 'vehicleToWheelie',
+          message: 'Select a vehicle to perform a wheelie.',
+          choices: this.vehicles.map((vehicle) => {
+            return {
+              name: `${vehicle.vin} -- ${vehicle.make} ${vehicle.model}`,
+              value: vehicle,
+            };
+          }),
+        },
+      ])
+      .then((answers) => {
+        const selectedVehicle = answers.vehicleToWheelie;
+        if (selectedVehicle instanceof Motorbike) {
+          console.log(`The selected vehicle is doing a wheelie!`);
+          this.performActions();
+        } else {
+          console.log(`The selected vehicle is not able to perform a wheelie. Please select another vehicle.`);
+          this.performActions();
+        };
+      });
   }
 
   // method to perform actions on a vehicle
@@ -457,7 +457,7 @@ class Cli {
                 console.log(`The selected vehicle is not a motorbike and cannot perform a wheelie. `);
               };
             };
-          }; 
+          };
         }
         else if (answers.action === 'Select or create another vehicle') {
           // start the cli to return to the initial prompt if the user wants to select or create another vehicle

@@ -75,7 +75,7 @@ class Vehicle implements Driveable {
   }
 
 };
-  
+
 
 
 
